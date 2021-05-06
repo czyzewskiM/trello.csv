@@ -1,6 +1,6 @@
 ###### trello.csv
 
-Application transforms JSON object retrieved from Trello to CSV format.
+Locally running JAVA application which transforms JSON object retrieved from Trello to CSV format.
 
 Single expected argument is source file path.
 Execution example:
