@@ -5,4 +5,4 @@ Locally running JAVA application which transforms JSON object retrieved from Tre
 Single expected argument is source file path.
 Execution example:
 
-java -jar trello.csv-1.0.jar "/Users/mczyzewski/Data/trello.json"
+`java -jar trello.csv-1.0.jar "/Users/mczyzewski/Data/trello.json"`
