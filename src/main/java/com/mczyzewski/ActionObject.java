@@ -1,13 +1,9 @@
 package com.mczyzewski;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ActionObject {
     public String id;
@@ -81,13 +77,14 @@ class Card {
     public String text;
     public String desc;
     public boolean closed;
-//    public Object dueComplete;
-//    public Object prefs;
-//    public Object dueReminder;
-//    public Object pos;
-//    public Object idList;
-//    public Object start;
-//    public Object cover;
+
+    public Object dueComplete;
+    public Object prefs;
+    public Object dueReminder;
+    public Object pos;
+    public Object idList;
+    public Object start;
+    public Object cover;
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
