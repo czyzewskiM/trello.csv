@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Card {
@@ -28,8 +29,8 @@ public class Card {
                 idBoard.trim() + ';' +
                 url.trim() + ';' +
                 shortUrl.trim() + ';' +
-                //labels +
-                //idShort +
+                labels.stream().map(label -> label.name).collect(Collectors.toList()) + ';' +
+                idShort + ';' +
                 dateLastActivity.toString().trim() + ';' +
                 closed;
         value = value.replaceAll("\n", "");
