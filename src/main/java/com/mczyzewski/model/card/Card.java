@@ -1,4 +1,4 @@
-package com.mczyzewski.model;
+package com.mczyzewski.model.card;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AwesomeCard {
+public class Card {
     public String id;
     public String name;
     public String desc;

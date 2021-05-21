@@ -2,13 +2,15 @@ package com.mczyzewski;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mczyzewski.model.AwesomeCard;
+import com.mczyzewski.model.card.Card;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,7 +41,7 @@ public class Main {
             JSONArray cards = (JSONArray) jsonObject.get("cards");
 //            JSONArray actions = (JSONArray) jsonObject.get("actions");
             ObjectMapper om = new ObjectMapper();
-            ArrayList<AwesomeCard> cardsList = new ArrayList<>();
+            ArrayList<Card> cardsList = new ArrayList<>();
 //            ArrayList<ActionObject> actionObjects = new ArrayList<>();
 //            actions.forEach(action -> {
 //                JSONObject obj = (JSONObject) action;
@@ -53,18 +55,18 @@ public class Main {
             cards.forEach(card -> {
                 JSONObject obj = (JSONObject) card;
                 try {
-                    cardsList.add(om.readValue(obj.toJSONString(), AwesomeCard.class));
+                    cardsList.add(om.readValue(obj.toJSONString(), Card.class));
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
                 }
             });
             List<String> data = new ArrayList<>();
             data.add("id;name;desc;idList;idBoard;url;shortUrl;dateLastActivity;closed");
-            data.addAll(cardsList.stream().map(AwesomeCard::toString).collect(Collectors.toList()));
-            File csvOutputFile = new File("Cards.csv");
+            data.addAll(cardsList.stream().map(Card::toString).collect(Collectors.toList()));
+            final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            File csvOutputFile = new File("trello " + sdf3.format(new Timestamp(System.currentTimeMillis())) + ".csv");
             try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
                 data.forEach(pw::println);
-                pw.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

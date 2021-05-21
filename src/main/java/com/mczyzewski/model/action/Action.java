@@ -1,11 +1,11 @@
-package com.mczyzewski;
+package com.mczyzewski.model.action;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ActionObject {
+public class Action {
     public String id;
     public String idMemberCreator;
     public Data data;
@@ -21,12 +21,16 @@ class MemberCreator {
     public String initials;
     public String username;
     public String text;
-//    public Object activityBlocked;
-//    public Object avatarHash;
-//    public Object avatarUrl;
-//    public Object nonPublicAvailable;
-//    public Object idMemberReferrer;
-//    public Object nonPublic;
+
+/*
+ Unused properties
+    public Object activityBlocked;
+    public Object avatarHash;
+    public Object avatarUrl;
+    public Object nonPublicAvailable;
+    public Object idMemberReferrer;
+    public Object nonPublic;
+*/
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -42,13 +46,17 @@ class Data {
     public Date dateLastEdited;
     public String idMember;
     public String idMemberAdded;
-//    public String memberType;
-//    public Object organization;
-//    public boolean deactivated;
-//    public Object plugin;
-//    public Object attachment;
-//    public Object member;
-//    public Object textData;
+
+/*
+ Unused properties
+    public String memberType;
+    public Object organization;
+    public boolean deactivated;
+    public Object plugin;
+    public Object attachment;
+    public Object member;
+    public Object textData;
+*/
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -57,13 +65,17 @@ class Old {
     public String desc;
     public Date due;
     public boolean closed;
-//    public Object dueComplete;
-//    public Object prefs;
-//    public Object dueReminder;
-//    public Object pos;
-//    public Object idList;
-//    public Object start;
-//    public Object cover;
+
+/*
+  Unused properties
+    public Object dueComplete;
+    public Object prefs;
+    public Object dueReminder;
+    public Object pos;
+    public Object idList;
+    public Object start;
+    public Object cover;
+*/
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -78,6 +90,8 @@ class Card {
     public String desc;
     public boolean closed;
 
+/*
+ Unused properties
     public Object dueComplete;
     public Object prefs;
     public Object dueReminder;
@@ -85,6 +99,7 @@ class Card {
     public Object idList;
     public Object start;
     public Object cover;
+*/
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -100,5 +115,8 @@ class List {
     public String id;
     public boolean closed;
 
-//    public Object pos;
+/*
+ Unused properties
+    public Object pos;
+*/
 }
